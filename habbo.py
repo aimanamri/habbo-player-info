@@ -3,7 +3,7 @@ from datetime import datetime, timezone
 
 def read_player_data(username):
     try:
-        res = requests.get('https://www.habbo.com/api/public/users?name='+username)
+        res = requests.get('https://www.habbo.com/api/public/users?name='+str(username))
         return res.json()
     except:
         return 'Issue with accessing API'
@@ -26,7 +26,7 @@ def compute_human_last_login(last_access_time):
     
     date_time_diff = current_date_time_obj - date_time_obj
 
-    return (date_time_diff.days, (date_time_diff.seconds // 3600), (date_time_diff.seconds // 60 % 60))
+    return f'{date_time_diff.days} day(s)', f'{(date_time_diff.seconds // 3600)} hour(s)', f'{(date_time_diff.seconds // 60 % 60)} minutes'
 
 def get_player_attributes(username):
     player_data = read_player_data(username)
@@ -40,8 +40,13 @@ def get_player_attributes(username):
             is_online = player_data['online']
             last_access_time = player_data['lastAccessTime']
 
-            return username, is_profile_visible, motto, is_online, [last_access_time, compute_human_last_login(last_access_time)]
+            return username, f'is_profile_visible : {is_profile_visible}', f'motto : {motto}', f'is_online : {is_online}', [last_access_time, compute_human_last_login(last_access_time)]
         else:
             return username, is_profile_visible, motto   
     except:
         return 'Error with accessing player'
+
+    
+if __name__ == '__main__':
+    username = input('What is your habbo name ? ')
+    print(get_player_attributes(username))
