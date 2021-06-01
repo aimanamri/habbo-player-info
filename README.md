@@ -30,5 +30,6 @@ Starting with **git clone**:
 git clone https://github.com/aimanamri/habbo-player-info.git -b main
 ```
 
-
+## Demo
+![demo](https://github.com/aimanamri/habbo-player-info/blob/main/demo.gif)
 
