@@ -40,7 +40,7 @@ def get_player_attributes(username):
             is_online = player_data['online']
             last_access_time = player_data['lastAccessTime']
 
-            return username, f'is_profile_visible : {is_profile_visible}', f'motto : {motto}', f'is_online : {is_online}', [last_access_time, compute_human_last_login(last_access_time)]
+            return username, f'Profile visibility : {is_profile_visible}', f'Motto : {motto}', f'Online now : {is_online}', [last_access_time, compute_human_last_login(last_access_time)]
         else:
             return username, is_profile_visible, motto   
     except:
@@ -48,5 +48,5 @@ def get_player_attributes(username):
 
     
 if __name__ == '__main__':
-    username = input('What is your habbo name ? ')
+    username = input('Enter habbo username :   ')
     print(get_player_attributes(username))
