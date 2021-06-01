@@ -40,7 +40,7 @@ def get_player_attributes(username):
             is_online = player_data['online']
             last_access_time = player_data['lastAccessTime']
 
-            return username, f'Profile visibility : {is_profile_visible}', f'Motto : {motto}', f'Online now : {is_online}', [last_access_time, compute_human_last_login(last_access_time)]
+            return username, f'Profile visibility : {is_profile_visible}', f'Motto : {motto}', f'Online now : {is_online}', [last_access_time], f'Last login:  {compute_human_last_login(last_access_time)}'
         else:
             return username, is_profile_visible, motto   
     except:
