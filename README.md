@@ -29,6 +29,12 @@ Starting with **git clone**:
 ```bash
 git clone https://github.com/aimanamri/habbo-player-info.git -b main
 ```
+```bash
+cd habbo-player-info
+```
+```bash
+python habbo.py
+```
 
 ## Demo
 ![demo](https://github.com/aimanamri/habbo-player-info/blob/main/demo.gif)
